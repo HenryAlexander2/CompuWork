@@ -1,7 +1,11 @@
 {
-    "java.project.sourcePaths": ["src"],
-    "java.project.outputPath": "bin",
+    "java.project.sourcePaths": [
+      "src/master/java/ui/ventanas"
+    ],
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ]
-}
+      "lib/**/*.jar",
+      "C:/Program Files/Paquetes Visual Studio Code/apache-maven-3.9.9/lib/*.jar" // Ruta a la carpeta de Maven
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive",
+    
+  }

@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch LoginWindow",
+      "request": "launch",
+      "mainClass": "com.compuwork.ui.ventanas.LoginWindow",
+      "vmArgs": "--module-path C:/Program Files/Paquetes Visual Studio Code/javafx-sdk-24 --add-modules javafx.controls,javafx.fxml"
+    }
+  ]
+}
