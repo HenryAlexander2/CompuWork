@@ -1,0 +1,41 @@
+Estructura del package
+
+
+
+CompuWork/                <- Carpeta raíz del proyecto
+│
+├── src/                  <- Código fuente
+│   └── com/compuwork/    <- Paquete base
+│       ├── model/        <- Clases de negocio (POO)
+│       │   ├── Empleado.java
+│       │   ├── EmpleadoPermanente.java
+│       │   ├── EmpleadoTemporal.java
+│       │   ├── Departamento.java
+│       │   └── Reporte.java
+│       │
+│       ├── service/      <- Lógica y controladores
+│       │   ├── EmpleadoService.java
+│       │   ├── DepartamentoService.java
+│       │   └── ReporteService.java
+│       │
+│       ├── ui/           <- Interfaz Swing
+│       │   ├── MainMenu.java
+│       │   ├── EmpleadoUI.java
+│       │   ├── DepartamentoUI.java
+│       │   └── ReporteUI.java
+│       │
+│       └── App.java      <- Clase principal (main)
+│
+├── test/                 <- Pruebas unitarias
+│   └── com/compuwork/
+│       ├── EmpleadoTest.java
+│       └── DepartamentoTest.java
+│
+├── docs/                 <- Documentación del proyecto
+│   ├── requerimientos.md
+│   ├── diagramas.uml
+│   └── manual_usuario.md
+│
+├── .gitignore            <- Ignorar binarios/temporales
+├── README.md             <- Explica tu proyecto (GitHub)
+└── LICENSE               <- (opcional) tipo de licencia
