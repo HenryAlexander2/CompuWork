@@ -1,4 +1,4 @@
-package master.java.model;
+package com.compuwork.model;
 /**
  - Clase ReporteDesempeño
  - Esta clase representa un reporte de desempeño en el sistema.

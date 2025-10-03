@@ -1,4 +1,4 @@
-package master.java.model;
+package com.compuwork.model;
 
 public enum TipoEmpleado {
     FIJO,

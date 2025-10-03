@@ -1,4 +1,4 @@
-package master.java.model;
+package com.compuwork.model;
 // Esta clase representa un departamento en el sistema
 // Puede contener atributos y métodos relacionados con el departamento
 import java.util.List;

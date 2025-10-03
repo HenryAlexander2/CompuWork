@@ -1,4 +1,4 @@
-package master.java.model;
+package com.compuwork.model;
 // Clase Administrador hereda de Empleado
 // y representa a un administrador en el sistema
 // Esta clase puede contener atributos y métodos específicos para los administradores
