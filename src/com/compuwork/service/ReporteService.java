@@ -4,6 +4,7 @@ import com.compuwork.model.Empleado;
 import com.compuwork.model.Departamento;
 import com.compuwork.model.Reporte;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
