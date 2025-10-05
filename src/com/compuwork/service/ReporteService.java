@@ -16,17 +16,17 @@ public class ReporteService {
     }
 
     // Generar reporte individual de un empleado
-    public Reporte generarReporteEmpleado(Empleado empleado, String metricas) {
-        Reporte reporte = new Reporte(empleado, metricas);
+    public Reporte generarReporteEmpleado(Empleado empleado, String evaluacion, float puntuacion) {
+        Reporte reporte = new Reporte(empleado.getId(), evaluacion, puntuacion);
         reportes.add(reporte);
         return reporte;
     }
 
-    // Generar reporte de un departamento completo
-    public List<Reporte> generarReporteDepartamento(Departamento departamento, String metricas) {
+    // Generar reportes para todos los empleados de un departamento
+    public List<Reporte> generarReporteDepartamento(Departamento departamento, String evaluacion, float puntuacion) {
         List<Reporte> reportesDepartamento = new ArrayList<>();
         for (Empleado emp : departamento.getEmpleados()) {
-            Reporte reporte = new Reporte(emp, metricas);
+            Reporte reporte = new Reporte(emp.getId(), evaluacion, puntuacion);
             reportes.add(reporte);
             reportesDepartamento.add(reporte);
         }
@@ -38,11 +38,11 @@ public class ReporteService {
         return reportes;
     }
 
-    // Buscar reportes por empleado
+    // Buscar reportes por ID de empleado
     public List<Reporte> buscarReportesPorEmpleado(int idEmpleado) {
         List<Reporte> resultado = new ArrayList<>();
         for (Reporte rep : reportes) {
-            if (rep.getEmpleado().getId() == idEmpleado) {
+            if (rep.getIdEmpleado() == idEmpleado) {
                 resultado.add(rep);
             }
         }

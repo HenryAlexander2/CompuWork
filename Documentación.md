@@ -1,7 +1,6 @@
 1. Modelo definido (package model)
 
 Los servicios trabajan sobre las clases del modelo.
-Ejemplo:
 
 EmpleadoService → necesita Empleado, EmpleadoPermanente, EmpleadoTemporal.
 

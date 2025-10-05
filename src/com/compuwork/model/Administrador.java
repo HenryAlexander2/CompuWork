@@ -35,8 +35,8 @@ public class Administrador extends Empleado {
     }
     
     // Método básico para reportes
-    public ReporteDesempeño crearReporte(int idEmpleado, String evaluacion, float puntuacion) {
-        return new ReporteDesempeño(idEmpleado, evaluacion, puntuacion);
+    public Reporte crearReporte(int idEmpleado, String evaluacion, float puntuacion) {
+        return new Reporte(idEmpleado, evaluacion, puntuacion);
     }
     
     // Getters básicos

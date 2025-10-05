@@ -4,14 +4,14 @@ package com.compuwork.model;
  - Esta clase representa un reporte de desempeño en el sistema.
  - Puede contener atributos y métodos relacionados con el reporte de desempeño por empleado.
  */
-public class ReporteDesempeño {
+public class Reporte {
     // Atributos
     private final int idEmpleado;
     private String evaluacion;
     private float puntuacion;
     
     // Constructor
-    public ReporteDesempeño(int idEmpleado, String evaluacion, float puntuacion) {
+    public Reporte(int idEmpleado, String evaluacion, float puntuacion) {
         this.idEmpleado = idEmpleado;
         this.evaluacion = evaluacion;
         this.puntuacion = validarPuntuacion(puntuacion);
