@@ -32,13 +32,24 @@ public class DepartamentoUI extends JFrame {
         areaTexto.setBackground(Color.LIGHT_GRAY);
         panel.add(new JScrollPane(areaTexto), BorderLayout.CENTER);
 
-        // Botones inferiores
-        JPanel panelBotones = new JPanel();
+       // Panel inferior con todos los botones
+        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
+        
         JButton btnListar = new JButton("Listar Departamentos");
         JButton btnAgregar = new JButton("Agregar Departamento");
+        JButton btnAtras = new JButton("Atrás");
+
+        
         panelBotones.add(btnListar);
         panelBotones.add(btnAgregar);
+        panelBotones.add(btnAtras);
+
         panel.add(panelBotones, BorderLayout.SOUTH);
+
+
+
+        
 
         // Acciones de los botones
         btnListar.addActionListener(new ActionListener() {
@@ -54,6 +65,8 @@ public class DepartamentoUI extends JFrame {
                 agregarDepartamento();
             }
         });
+
+        btnAtras.addActionListener(e -> dispose()); // Cierra la ventana actual;
 
         add(panel);
         setVisible(true);
@@ -77,6 +90,8 @@ public class DepartamentoUI extends JFrame {
         JOptionPane.showMessageDialog(this, "Nombre inválido.");
     }
 }
+
+
 
 
     public static void main(String[] args) {
