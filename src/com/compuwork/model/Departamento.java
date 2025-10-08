@@ -15,6 +15,10 @@ public class Departamento {
         this.nombre = nombre;
         this.empleados = new ArrayList<>();
     }
+    
+    public Departamento(String nombre) {
+        this.nombre = nombre;
+    }
 
     // Métodos para gestionar empleados
     public void agregarEmpleado(Empleado empleado) {

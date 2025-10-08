@@ -67,15 +67,17 @@ public class DepartamentoUI extends JFrame {
     }
 
     private void agregarDepartamento() {
-        String nombre = JOptionPane.showInputDialog(this, "Ingrese el nombre del departamento:");
-        if (nombre != null && !nombre.trim().isEmpty()) {
-            departamentoService.agregarDepartamento(nombre);
-            JOptionPane.showMessageDialog(this, "Departamento agregado con éxito.");
-            listarDepartamentos(); // ✅ Refresca el área de texto
-        } else {
-            JOptionPane.showMessageDialog(this, "Nombre inválido.");
-        }
+    String nombre = JOptionPane.showInputDialog(this, "Ingrese el nombre del departamento:");
+    if (nombre != null && !nombre.trim().isEmpty()) {
+        Departamento nuevoDepartamento = new Departamento(nombre);
+        departamentoService.agregarDepartamento(nuevoDepartamento);
+        JOptionPane.showMessageDialog(this, "Departamento agregado con éxito.");
+        listarDepartamentos(); // Actualiza el área de texto
+    } else {
+        JOptionPane.showMessageDialog(this, "Nombre inválido.");
     }
+}
+
 
     public static void main(String[] args) {
         new DepartamentoUI();
