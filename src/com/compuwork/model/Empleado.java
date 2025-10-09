@@ -7,6 +7,7 @@ public class Empleado {
     private String cargo;
     private double salario;
     private TipoEmpleado tipo;
+    private Departamento departamento; // Asociación con Departamento
 
     // Constructor principal (id requerido)
     public Empleado(int id) {
@@ -15,6 +16,7 @@ public class Empleado {
         this.cargo = "";
         this.salario = 0.0;
         this.tipo = TipoEmpleado.FIJO; // Valor por defecto
+        this.departamento = null; // Inicialmente sin asignar
     }
 
     // Constructor completo
@@ -24,6 +26,7 @@ public class Empleado {
         this.cargo = cargo;
         this.salario = salario;
         this.tipo = tipo;
+        this.departamento = null; // Inicialmente sin asignar
     }
 
     // Getters
@@ -47,6 +50,10 @@ public class Empleado {
         return this.tipo;
     }
 
+    public Departamento getDepartamento() {
+        return this.departamento;
+    }
+
     // Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -62,5 +69,23 @@ public class Empleado {
 
     public void setTipo(TipoEmpleado tipo) {
         this.tipo = tipo;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
+    }
+
+    // 🔹 Sobrescribir toString() para mostrar información útil
+    @Override
+    public String toString() {
+        return String.format(
+            "ID: %d | Nombre: %s | Cargo: %s | Salario: %.2f | Tipo: %s | Departamento: %s",
+            id,
+            nombre,
+            cargo,
+            salario,
+            tipo != null ? tipo.name() : "N/A",
+            departamento != null ? departamento.getNombre() : "Sin asignar"
+        );
     }
 }

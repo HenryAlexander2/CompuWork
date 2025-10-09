@@ -14,7 +14,7 @@ public class ReporteUI extends JFrame {
     private JTextArea areaTexto;
 
     public ReporteUI() {
-        reporteService = new ReporteService();
+        ReporteService reporteService = ReporteService.getInstance();
         inicializarInterfaz();
     }
 

@@ -3,6 +3,7 @@ package com.compuwork;
 import com.compuwork.ui.DepartamentoUI;
 import com.compuwork.ui.EmpleadoUI;
 import com.compuwork.ui.ReporteUI;
+import com.compuwork.service.DepartamentoService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,13 +32,37 @@ public class App {
             menu.add(panel);
             menu.setVisible(true);
 
-            btnEmpleados.addActionListener(e -> new EmpleadoUI());
-            btnDepartamentos.addActionListener(e -> new DepartamentoUI());
-            btnReportes.addActionListener(e -> new ReporteUI());
+            //  Usar la instancia Singleton del servicio
+            DepartamentoService departamentoService = DepartamentoService.getInstancia();
+
+            // --- Botón "Gestión de Empleados" ---
+            btnEmpleados.addActionListener(e -> {
+                // Verificar si hay al menos un departamento antes de abrir EmpleadoUI
+                if (departamentoService.listarDepartamentos().isEmpty()) {
+                    JOptionPane.showMessageDialog(
+                            menu,
+                            "No existen departamentos registrados.\nDebe crear al menos uno antes de gestionar empleados.",
+                            "Advertencia",
+                            JOptionPane.WARNING_MESSAGE
+                    );
+                } else {
+                    //  Se debe llamar a setVisible(true) para mostrar la ventana
+                    new EmpleadoUI().setVisible(true);
+                }
+            });
+
+            // --- Botón "Gestión de Departamentos" ---
+            btnDepartamentos.addActionListener(e -> new DepartamentoUI().setVisible(true));
+
+            // --- Botón "Gestión de Reportes" ---
+            btnReportes.addActionListener(e -> new ReporteUI().setVisible(true));
+
+            // --- Botón "Salir" ---
             btnSalir.addActionListener(e -> System.exit(0));
         });
     }
 }
+
 
 
 

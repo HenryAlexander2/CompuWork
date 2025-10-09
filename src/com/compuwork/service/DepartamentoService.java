@@ -1,60 +1,60 @@
 package com.compuwork.service;
 
 import com.compuwork.model.Departamento;
-import com.compuwork.model.Empleado;
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DepartamentoService {
 
-    private List<Departamento> departamentos;
+    // Instancia única (patrón Singleton)
+    private static DepartamentoService instancia;
 
-    public DepartamentoService() {
-        this.departamentos = new ArrayList<>();
+    // Lista interna de departamentos
+    private final List<Departamento> departamentos;
+
+    // Constructor privado
+    private DepartamentoService() {
+        departamentos = new ArrayList<>();
+    }
+
+    // Obtener la instancia única
+    public static synchronized DepartamentoService getInstancia() {
+        if (instancia == null) {
+            instancia = new DepartamentoService();
+        }
+        return instancia;
     }
 
     // Agregar departamento
     public void agregarDepartamento(Departamento departamento) {
-        departamentos.add(departamento);
-    }
-
-    // Actualizar departamento por id
-    public void actualizarDepartamento(int id, Departamento departamentoActualizado) {
-        for (int i = 0; i < departamentos.size(); i++) {
-            if (departamentos.get(i).getId() == id) {
-                departamentos.set(i, departamentoActualizado);
-                return;
-            }
+        if (departamento != null && !departamentos.contains(departamento)) {
+            departamentos.add(departamento);
         }
     }
 
-    // Eliminar departamento por id
-    public void eliminarDepartamento(int id) {
-        departamentos.removeIf(dep -> dep.getId() == id);
-    }
-
-    // Listar departamentos
+    // Listar departamentos (lista inmodificable)
     public List<Departamento> listarDepartamentos() {
-        return departamentos;
+        return Collections.unmodifiableList(departamentos);
     }
 
-    // Buscar departamento por id
-    public Departamento buscarDepartamentoPorId(int id) {
-        for (Departamento dep : departamentos) {
-            if (dep.getId() == id) {
-                return dep;
+    // Buscar departamento por nombre
+    public Departamento buscarPorNombre(String nombre) {
+        for (Departamento depto : departamentos) {
+            if (depto.getNombre().equalsIgnoreCase(nombre)) {
+                return depto;
             }
         }
-        return null; // si no lo encuentra
+        return null;
     }
 
-    // Ver empleados de un departamento
-    public List<Empleado> listarEmpleadosDeDepartamento(int idDepartamento) {
-        Departamento dep = buscarDepartamentoPorId(idDepartamento);
-        if (dep != null) {
-            return dep.getEmpleados();
-        }
-        return new ArrayList<>();
+    // Eliminar departamento
+    public void eliminarDepartamento(Departamento departamento) {
+        departamentos.remove(departamento);
+    }
+
+    // Limpiar todos los departamentos
+    public void limpiarDepartamentos() {
+        departamentos.clear();
     }
 }

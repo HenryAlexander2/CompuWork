@@ -14,7 +14,7 @@ public class DepartamentoUI extends JFrame {
     private JTextArea areaTexto;
 
     public DepartamentoUI() {
-        departamentoService = new DepartamentoService();
+        departamentoService = DepartamentoService.getInstancia();
         inicializarInterfaz();
     }
 
@@ -93,8 +93,9 @@ public class DepartamentoUI extends JFrame {
 
 
 
-
+// Prueba individual
     public static void main(String[] args) {
-        new DepartamentoUI();
+        departamentoService = DepartamentoService.getInstancia();
+
     }
 }

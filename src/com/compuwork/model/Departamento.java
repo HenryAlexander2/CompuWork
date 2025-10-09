@@ -1,6 +1,5 @@
 package com.compuwork.model;
-// Esta clase representa un departamento en el sistema
-// Puede contener atributos y métodos relacionados con el departamento
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -15,9 +14,10 @@ public class Departamento {
         this.nombre = nombre;
         this.empleados = new ArrayList<>();
     }
-    
+
     public Departamento(String nombre) {
         this.nombre = nombre;
+        this.empleados = new ArrayList<>();
     }
 
     // Métodos para gestionar empleados
@@ -59,5 +59,11 @@ public class Departamento {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    // 🔹 Sobrescribir toString() para mostrar el nombre del departamento
+    @Override
+    public String toString() {
+        return nombre;
     }
 }
